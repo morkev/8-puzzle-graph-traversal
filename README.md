@@ -11,6 +11,8 @@ The 8-puzzle problem is a puzzle invented and popularized by Noyes Palmer Chapma
  initial        1-left          2-up          5-left          goal
 ```
 
+> The following shows a sequence of legal moves from an initial board (left) to the goal board (right).
+
 We describe a solution to the problem that illustrates a general artificial intelligence methodology known as the A* search algorithm. We define a search node of the game to be a board, the number of moves made to reach the board, and the previous search node. First, insert the initial search node (the initial board, 0 moves, and a null previous search node) into a priority queue. Then, delete from the priority queue the search node with the minimum priority, and insert onto the priority queue all neighboring search nodes (those that can be reached in one move from the dequeued search node). Repeat this procedure until the search node dequeued corresponds to a goal board. The success of this approach hinges on the choice of priority function for a search node. 
 
 ## Priority Functions

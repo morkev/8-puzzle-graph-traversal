@@ -1,5 +1,5 @@
 # 8-Puzzle-Graph-Traversal
-Write a program to solve the 8-puzzle problem (and its natural generalizations) using the A* search algorithm.
+Write a program to solve the 8-puzzle problem (and its natural generalizations) using the <i>A* search algorithm</i>.
 
 The 8-puzzle problem is a puzzle invented and popularized by Noyes Palmer Chapman in the 1870s. It is played on a 3-by-3 grid with 8 square blocks labeled 1 through 8 and a blank square. Your goal is to rearrange the blocks so that they are in order, using as few moves as possible. You are permitted to slide blocks horizontally or vertically into the blank square. 
 
@@ -13,7 +13,7 @@ The 8-puzzle problem is a puzzle invented and popularized by Noyes Palmer Chapma
 
 > The following shows a sequence of legal moves from an initial board (left) to the goal board (right).
 
-We describe a solution to the problem that illustrates a general artificial intelligence methodology known as the A* search algorithm. We define a search node of the game to be a board, the number of moves made to reach the board, and the previous search node. First, insert the initial search node (the initial board, 0 moves, and a null previous search node) into a priority queue. Then, delete from the priority queue the search node with the minimum priority, and insert onto the priority queue all neighboring search nodes (those that can be reached in one move from the dequeued search node). Repeat this procedure until the search node dequeued corresponds to a goal board. The success of this approach hinges on the choice of priority function for a search node. 
+We describe a solution to the problem that illustrates a general artificial intelligence methodology known as the <i>A* search algorithm</i>. We define a search node of the game to be a board, the number of moves made to reach the board, and the previous search node. First, insert the initial search node (the initial board, 0 moves, and a null previous search node) into a priority queue. Then, delete from the priority queue the search node with the minimum priority, and insert onto the priority queue all neighboring search nodes (those that can be reached in one move from the dequeued search node). Repeat this procedure until the search node dequeued corresponds to a goal board. The success of this approach hinges on the choice of priority function for a search node. 
 
 ## Priority Functions
 
@@ -231,4 +231,4 @@ Minimum number of moves = 4
 Unsolvable puzzle
 ```
 
-Your program should work correctly for arbitrary <i>N-by-N</i> boards (for any <i>1</i> ≤ <i>N</i> ≤ <i>32768</i>), even if it is too slow to solve some of them in a reasonable amount of time. Implement a better solution which is capable of solving puzzles that the required solution is incapable of solving.
+Program works correctly for arbitrary <i>N-by-N</i> boards (for any <i>1</i> ≤ <i>N</i> ≤ <i>32768</i>).

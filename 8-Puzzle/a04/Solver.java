@@ -15,7 +15,6 @@ import edu.princeton.cs.algs4.Stopwatch;
  * @author Dawood Ahmed
  */
 public class Solver {
-	
 	private Stack<Board> solution;
 	private MinPQ<Move> priorityQueue;
 	private int moves;
@@ -89,10 +88,10 @@ public class Solver {
 	
 	/**
 	 * Returns the minimum number of moves to solve the initial board.
-     */
-    public int moves(){
+     	 */
+    	public int moves(){
 		return moves;
-    }
+    	}
 	
 	/**
 	 * Returns an Iterable sequence of boards for the shortest solution.
@@ -108,16 +107,15 @@ public class Solver {
 	 * printing the solution in standard output.
 	 */
 	public static void main(String[] args) {
-		
 	    // Create initial board from file
-		String fileLocation = "puzzle01.txt";
+	    String fileLocation = "puzzle01.txt";
 	    In in = new In("src/puzzles/" + fileLocation);
 
 	    int N = in.readInt();
 	    int[][] blocks = new int[N][N];
 	    for (int i = 0; i < N; i++)
-	        for (int j = 0; j < N; j++)
-	            blocks[i][j] = in.readInt();
+	    	for (int j = 0; j < N; j++)
+	    	    blocks[i][j] = in.readInt();
 	    Board initial = new Board(blocks);
 		
 	    // Check if puzzle is solvable; if so, solve it and output solution

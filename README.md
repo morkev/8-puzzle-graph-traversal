@@ -1,7 +1,7 @@
 # 8-Puzzle-Graph-Traversal
 Write a program to solve the 8-puzzle problem (and its natural generalizations) using the <i>A* search algorithm</i>.
 
-The 8-puzzle problem is a puzzle invented and popularized by Noyes Palmer Chapman in the 1870s. It is played on a 3-by-3 grid with 8 square blocks labeled 1 through 8 and a blank square. Your goal is to rearrange the blocks so that they are in order, using as few moves as possible. You are permitted to slide blocks horizontally or vertically into the blank square. 
+The 8-puzzle problem is a puzzle invented and popularized by Noyes Palmer Chapman in the 1870s. It is played on a <i>3-by-3</i> grid with 8 square blocks labeled 1 through 8 and a blank square. Your goal is to rearrange the blocks so that they are in order, using as few moves as possible. You are permitted to slide blocks horizontally or vertically into the blank square. 
 
 ```java
     1  3        1     3        1  2  3        1  2  3        1  2  3
@@ -133,9 +133,9 @@ public class Board {
 }
 ```
 
-<b>Corner cases</b>: you may assume that the constructor receives an N-by-N array containing the N2 integers between 0 and N2 − 1, where 0 represents the blank square.
+<b>Corner cases</b>: you may assume that the constructor receives an <i>N-by-N</i> array containing the <i>N<sup>2</sup></i> integers between <i>0</i> and <i>N<sup>2</sup> - 1</i>, where <i>0</i> represents the blank square.
 
-<b>Performance requirements</b>: your implementation should support all Board methods in time proportional to N² (or better) in the worst case, with the exception that isSolvable() may take up to N4 in the worst case.
+<b>Performance requirements</b>: your implementation should support all Board methods in time proportional to <i>N<sup>2</sup></i> (or better) in the worst case, with the exception that <b><i>isSolvable()</i></b> may take up to <i>N<sup>4</sup></i> in the worst case.
 
 Also, create an immutable data type Solver with the following API:
 

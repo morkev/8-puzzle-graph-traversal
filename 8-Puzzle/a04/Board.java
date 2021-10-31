@@ -23,10 +23,10 @@ public class Board {
 	private int[] searchNode;
 	private int initialValue;
 	
-	/**
-	 * Construct a board from an N-by-N array of blocks
-	 * (where blocks[i][j] = block in row i, column j).
-	 */
+   /**
+    * Construct a board from an N-by-N array of blocks
+    * (where blocks[i][j] = block in row i, column j).
+    */
     public Board(int[][] blocks) {
     	if(blocks == null) {
     		throw new NullPointerException();
@@ -35,12 +35,12 @@ public class Board {
     	searchNode = new int[N * N];
     	
     	int tile = 0;
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j <N; j++) {
-				if (blocks[i][j] == 0) initialValue = tile;
-				searchNode[tile++] = blocks[i][j];
-			}
-		}
+	for (int i = 0; i < N; i++) {
+	    for (int j = 0; j < N; j++) {
+		if (blocks[i][j] == 0) initialValue = tile;
+		searchNode[tile++] = blocks[i][j];
+	    }
+	}
     }
     
     /**
@@ -75,8 +75,10 @@ public class Board {
     		return hamming;
     	}
     	hamming = 0;
-    	for(int i = 0; i<searchNode.length; i++){
-    		if(searchNode[i] != (i+1) && searchNode[i] != 0)hamming++;
+    	for(int i = 0; i < searchNode.length; i++){
+    		if(searchNode[i] != (i+1) && searchNode[i] != 0){
+			hamming++;
+		}
     	}
     	return hamming;
     }
@@ -167,44 +169,42 @@ public class Board {
      * i.e.: (row 0, followed by row 1, and so forth).
      */
     public boolean isSolvable() {
-		int sum = inversions();
-		boolean checkEven = size() % 2 == 0;
-		if (checkEven) {
-			sum += blankRow();
-		}
-		
-		boolean checkInversions = (sum % 2) == 0;
-		return checkEven != checkInversions;
+	int sum = inversions();
+	boolean checkEven = size() % 2 == 0;
+	if (checkEven) {
+		sum += blankRow();
 	}
+	boolean checkInversions = (sum % 2) == 0;
+	return checkEven != checkInversions;
+    }
     
     /**
-	 * Locates and returns the row that the blank square is on.
-	 */
-	private int blankRow() {
-		for (int i = 0; i < searchNode.length - 1; i++) {
-			int row = (searchNode[i] - 1) / size() - (i / size());
-			if (searchNode[i] == 0) {
-				return row;
-			}
+     * Locates and returns the row that the blank square is on.
+     */
+    private int blankRow() {
+	for (int i = 0; i < searchNode.length - 1; i++) {
+		int row = (searchNode[i] - 1) / size() - (i / size());
+		if (searchNode[i] == 0) {
+		return row;
 		}
-		return -1;
 	}
+	return -1;
+    }
     
     /**
-	 * Counts and returns the number of inversions.
-	 */
-	private int inversions() {
-		int count = 0;
-
-		for (int i = 0; i < searchNode.length; i++) {
-			for (int j = i; j < searchNode.length; j++) {
-				if (searchNode[j] < searchNode[i] && searchNode[j] != 0) {
-					count++;
-				}
+     * Counts and returns the number of inversions.
+     */
+    private int inversions() {
+	int count = 0;
+	for (int i = 0; i < searchNode.length; i++) {
+		for (int j = i; j < searchNode.length; j++) {
+			if (searchNode[j] < searchNode[i] && searchNode[j] != 0) {
+			count++;
 			}
 		}
-		return count;
 	}
+	return count;
+     }
 
     
     /**
@@ -246,17 +246,18 @@ public class Board {
     	}
     	Board other = (Board) y;
     	for (int i = 0; i < searchNode.length; i++) {
-    		if (this.searchNode[i] != other.searchNode[i]) return false;
+    		if (this.searchNode[i] != other.searchNode[i]) 
+		return false;
     	}
-		return true;
+	return true;
     }
     
     /**
      * String representation of the board.
      * -----------------------------------
      * e.g.:	0  1  3
-     * 			4  2  5
-     * 			7  8  6
+     * 		4  2  5
+     * 		7  8  6
      * -----------------------------------
      * 
      * Input and output format for a board is the 
@@ -265,13 +266,13 @@ public class Board {
      */
     public String toString() {
     	StringBuilder s = new StringBuilder();
-	    s.append(N + "\n");
-	    for (int i = 0; i < searchNode.length; i++) {
-            s.append(String.format("%2d ", searchNode[i]));
-            if ((i + 1) % N == 0) {
-            	s.append("\n");
-            }
-	    }
-	    return s.toString();
+	s.append(N + "\n");
+	for (int i = 0; i < searchNode.length; i++) {
+        	s.append(String.format("%2d ", searchNode[i]));
+        	if ((i + 1) % N == 0) {
+        		s.append("\n");
+        	}
+	}
+	return s.toString();
     }
 }
